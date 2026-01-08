@@ -28,7 +28,7 @@ export function determineInputSource(text: string): InputSource {
         // Match imdb.com, www.imdb.com, m.imdb.com, and international domains like imdb.de, imdb.fr, etc.
         const isImdbDomain = hostname === 'imdb.com' ||
             hostname.endsWith('.imdb.com') ||
-            /^(www\.)?imdb\.[a-z]{2,}$/.test(hostname);
+            /^([a-z]+\.)?imdb\.[a-z]{2,}$/.test(hostname);
 
         // Ensure it's a valid IMDB title URL (not just any IMDB page)
         const isImdb = isImdbDomain && isValidImdbTitleUrl(url);
