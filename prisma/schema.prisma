@@ -16,11 +16,13 @@ model Movie {
 }
 
 model MovieInput {
-  id        Int      @id @default(autoincrement())
+  id        Int         @id @default(autoincrement())
   rawInput  String
   source    InputSource
   status    InputStatus @default(PENDING) // Enum: PENDING, PROCESSED, FAILED
-  createdAt DateTime @default(now())
+  
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
 }
 
 enum InputSource {
